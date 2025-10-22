@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jonesangga's page</title>
     <style>
         html {
             padding: 0;
@@ -11,48 +12,208 @@
             line-height: 1.6;
         }
     </style>
-    <title>jonesangga's page</title>
 </head>
 <body>
+    <a href="index.html">index</a> //
+    <a href="links.html">links</a>
+<h1>SSG</h1>
+<p>Posted: Tue, 22-10-2025.</p>
+<p>Suddenly I wanted to redesign my blog into one long page.
+I made really simple static site generator in python.
+This is the first time I used uv.
+I write blog posts in markdown and place them inside md directory.
+For all files in md directory, if there is no corresponding html file in tmp directory
+or it is newer, I will convert it using markdown library to html and place it in tmp directory.
+Then I join all html files inside tmp directory into single HTML.</p><hr><h1>My Youtube Channel</h1>
+<p>Posted: Tue, 17-11-2024.</p>
+<p>I made a youtube channel and posted my first video.
+Link <a href="https://www.youtube.com/@jonesangga">here</a>.
+I always fail to verify my phone number.
+So I cannot post videos longer than 15 minutes for now.</p>
+<p>My first video is about creating a vim plugin <a href="https://codeberg.org/jonesangga/fsticky/">fsticky</a>.
+I recorded with obs-studio and then reduced the file size using ffmpeg with the following command</p>
+<pre><code>ffmpeg -i input.mp4 -vcodec libx264 -crf 24 output.mp4
+</code></pre>
+<p>This is not intended as tutorial.
+I just record what I think interesting.
+I don't record with my own voice because my pronounciation is bad.
+Also I don't have a good setup for recording audio.
+But I will use text to speech voice.
+The one I use is <a href="https://github.com/rhasspy/piper">piper</a>.
+a fast, local neural text to speech system.
+Actually this is what my next video about. I will write a wrapper
+around piper. So I can call that inside vim and passing curently selected
+text to say.</p><hr><h1>Porting Old Sketches</h1>
+<p>Posted: Tue, 26-11-2024.</p>
+<p>I used processing in 2022 and p5 in 2023.
+Many of my sketches are just static designs.
+Now I port that to vanila javascript with html canvas.
+This is part of my new project Element of Creative Coding (EoCC) where I try
+to categorize, implement, and document aspects and techniques in creative coding
+as I am learning.
+Here is the link: <a href="https://jonesangga.codeberg.page/eocc">eocc</a>.</p>
+<p>I try to minimize dependecies.
+Every sketch will have exactly two files: sketch-name.html and sketch-name.js.
+There are no separate js files for helper functions. No CSS.
+I want it to be easy to copy and run individual sketch on others machine.</p>
+<p>This project has no rigid plan and no deadline. Any time I find something
+intresting I try to build that and add to this collection with some explanations.
+More about this project on future post.</p><hr><h1>Finished Computer Graphics from Scratch</h1>
+<p>Posted: Sun, 17-11-2024.</p>
+<p>I followed Computer Graphics from Scratch book by Gabriel Gambetta.
+Here is the <a href="https://gabrielgambetta.com/computer-graphics-from-scratch/">online version</a>
+I port the provided demo code from javascript to c. This is by far my biggest c project.
+See <a href="https://codeberg.org/jonesangga/c-computer-graphics-from-scratch">here</a>.</p>
+<p>I don't use external libraries. The image result is in ppm format.
+File ppm.h on the root is used for managing ppm image.
+I open the image using feh:</p>
+<pre><code>feh --force-aliasing filename.ppm
+</code></pre>
+<p>Some chapters has more than one demo but here I combine them per chapter.
+I should refactor them.</p>
+<p>I found that I improved more by just searching and learning the particular thing I need
+than reading the whole book.</p><hr><h1>My i3 Config</h1>
+<p>Posted: Sun, 22-09-2024.
+Edited: Sun, 24-11-2024.</p>
+<p>First, I ran this to generate the config file:</p>
+<pre><code>$ i3-config-wizard
+</code></pre>
+<p>Here I chose Windows key as my mod key.</p>
+<p>I made bindings to adjust volume and brightness.</p>
+<pre><code>bindsym $mod+F1 exec amixer sset 'Master' toggle
+bindsym $mod+F3 exec amixer sset 'Master' 5%-
+bindsym $mod+Shift+F3 exec amixer sset 'Master' 5%+
+bindsym $mod+F5 exec xbacklight -0.5
+bindsym $mod+Shift+F5 exec xbacklight +0.5
+</code></pre>
+<p>I increased the font size for window title and bar.</p>
+<pre><code>font pango:monospace 10
+</code></pre>
+<p>I added wallpaper.</p>
+<pre><code>exec_always feh --bg-fill +0+0 ~/Pictures/wallpaper.jpg
+</code></pre>
+<p>I changed tab bar font color because it is hard to see.</p>
+<pre><code>client.unfocused #333333 #444444 #ffffff #292d2e #222222
+</code></pre>
+<p>I changed the background color of bar.</p>
+<pre><code>colors {
+    background #282A2E
+}
+</code></pre>
+<p>Disable mouse wheel on bar.</p>
+<pre><code>bindsym button4 nop
+bindsym button5 nop
+</code></pre>
+<p>My keyboard seldom not working properly and I cannot exit i3.
+This is my temporary solution.</p>
+<pre><code>bindsym --release button3 exec &quot;i3-nagbar -t warning -m 'Do you really want to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'&quot;
+</code></pre>
+<p>I set the default terminal to alacritty.</p>
+<pre><code>bindsym $mod+Return exec alacritty
+</code></pre>
+<p>I added binding to scrot (screen capture).</p>
+<pre><code>bindsym $mod+F11 exec scrot -F ~/Pictures/SS/'%Y-%m-%d-%H%M%S.png'
+</code></pre>
+<p>For i3status, I set the color to false and set the interval to 5 second.</p>
+<pre><code>general {
+        colors = false
+        interval = 5
+}
+</code></pre>
+<p>I used these modules: battery, memory, volume, and tztime.</p><hr><h1>Reminder for Journaling</h1>
+<p>Posted: Sun, 14-07-2024.
+Edited: Mon, 13-10-2025.</p>
+<p>I keep forgeting to write my journal. My solution is to create a program that checks and reminds
+me if I haven't filled my journal whenever I open a terminal.</p>
+<p>I only use txt file on vim for journaling. Nothing fancy. I don't like note taking app like
+obsidian and notion, because too many buttons and many features that I will never use.
+I use a subset of markdown syntax for organizing my journal:</p>
+<pre><code># Journal
 
-<h1>jonesangga's page</h1>
-<hr>
+## 2024
 
-<p>Always under construction!</p>
+### 07-11-24
+- Some interesting events.
+- Today I learned ....
 
-<p><a href="https://jonesangga.github.io/braindump/">braindump</a></p>
-
-<h2>Projects</h2>
-
+### 06-11-24
+- Finished chapter 1 of &quot;insert book name&quot;
+- Tried installing new OS.
+</code></pre>
+<p>So, here is the code:
+<a href="https://codeberg.org/jonesangga/dotfiles/src/branch/main/utils/journalreminder.c">journalreminder.c</a></p>
+<p>First, it checks the last modified date of a given filename argument, in this case my journal.txt file.
+And subtract that to today's date. Then it prints a message if the date difference is not zero.</p>
+<p>To run that everytime I open a terminal I added the following line to my <code>.bashrc</code> file:</p>
+<pre><code>~/.dotfiles/utils/journalreminder ~/Meta/journal.txt
+</code></pre>
+<p>One of its limitation is if I forgot to write journal for, say 5 days, and now I write it but
+only for today's date, it will not show the message again. Though that also what I intended:
+if I forget to write for one day, the reason might be there is nothing interesting to
+write that day.</p><hr><h1>Another Attempt to Create a Blog</h1>
+<p>Posted: Thu, 11-07-2024.
+Edited: Mon, 13-10-2025.</p>
+<p>Let's start with my list of failed blog/web projects:</p>
 <ul>
-    <li><a href="https://jonesangga.github.io/fungeo">FunGeo</a>
-        Programming language and interactive environment for playing with Geometry (WIP).
-    </li>
-    <li><a href="https://jonesangga.codeberg.page/eocc">Elements of Creative Coding</a>
-        A collection of tutorial and showcase related to creative coding (WIP).
-    </li>
-    <li><a href="https://jonesangga.codeberg.page/js-mathing">js-mathing</a>
-        A collection of mathematics related demo and visualization written in javascript (WIP).
-    </li>
-    <li><a href="vimping.html">vimping</a>
-        A page dedicated to vim (WIP).
-    </li>
-    <li><a href="https://jonesangga.codeberg.page/genuary2025">Genuary 2025</a>
-        Following Genuary 2025 event (WIP).
-    </li>
+<li>2019: My first local landing page following Indian youtube tutorial.</li>
+<li>2020: Tried a free hosting 000webhost, doing php and mysql.</li>
+<li>2020: Tried some obscure free hostings.</li>
+<li>2020: Bought a domain, only last 3 months.</li>
+<li>2021: Github pages: math calculator/solver.</li>
+<li>2021: Blogspot posting math and pascal programming.</li>
+<li>2022: Jekyll.</li>
+<li>2023: Github pages: showcase creative coding.</li>
+<li>2024: Hugo.</li>
+<li>2024: Cloudflare pages: math calculator/solver.</li>
+<li>2024: neocities + my own static site generator + github action.</li>
 </ul>
-
-<h2>Socials</h2>
-
+<p>In this attempt, I made the following principles:</p>
 <ul>
-    <li><a href="https://github.com/jonesangga">Github</a></li>
-    <li><a href="https://codeberg.org/jonesangga">Codeberg</a></li>
-    <li><a href="https://mastodon.social/@jonesangga">Mastodon</a></li>
-    <li><a href="https://x.com/jonesangga_">Twitter</a></li>
-    <li><a href="https://www.youtube.com/@jonesangga">Youtube</a></li>
-    <li>Gopher site: gopher://tilde.club/1/~jonesangga (<a href="https://portal.mozz.us/gopher/tilde.club/1/~jonesangga">proxy</a>)</li>
-    <li>Email: jonesangga (at) proton (dot) me</li>
+<li>No JS.</li>
+<li>No favicon.</li>
+<li>Minimal CSS, one for all.</li>
+<li>No id and class attributes.</li>
+<li>No menu bar.</li>
+<li>No comment section.</li>
+<li>No footer.</li>
+<li>Only float left.</li>
+<li>Use CDN for images.</li>
 </ul>
-
-</body>
-</html>
+<p>Blog tree:</p>
+<pre><code>- index.html
+- style.css
+- posts/
+    - post1.html
+    - post2.html
+    - ...
+</code></pre>
+<p>I will stick to this structure for every post:</p>
+<ul>
+<li>meta charset.</li>
+<li>meta viewport.</li>
+<li>link css.</li>
+<li>Link to home.</li>
+<li>title.</li>
+<li>h1 title.</li>
+<li>Author.</li>
+<li>Posted.</li>
+<li>Last edited.</li>
+<li>tldr.</li>
+<li>hr.</li>
+<li>Text post.</li>
+</ul>
+<p>For my coping, I call this HTML meditation.
+I write the layout once and never change it. So, in 10 years it will look nostalgic.
+I am writing this on vim.
+I decided to less worried about my English. I am bad at writing English.
+I will mostly write bullet list because it is easier than paragraph.</p>
+<p>Some inspirations:</p>
+<ul>
+<li><a href="https://bearblog.dev/discover">bearblog.dev/discover</a></li>
+<li><a href="https://neocities.org/browse">neocities.org/browse</a></li>
+<li><a href="https://no-js.club">no-js.club</a></li>
+<li><a href="https://250kb.club">250kb.club</a></li>
+<li><a href="https://512kb.club">512kb.club</a></li>
+<li><a href="https://1mb.club">1mb.club</a></li>
+<li><a href="https://motherfuckingwebsite.com">motherfuckingwebsite.com</a></li>
+</ul><hr></body></html>
