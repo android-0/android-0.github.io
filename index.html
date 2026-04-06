@@ -6,6 +6,8 @@
     <title>Android Zero</title>
     <style>
         html { padding: 0; margin: 0 auto; max-width: 700px; line-height: 1.6; }
+        pre { overflow: auto; background: #eef; padding: 1rem; }
+        code { font-size: 1rem; background: #eef; }
     </style>
 </head>
 
@@ -21,6 +23,7 @@
 <p><b>Contents</b>
 
 <ol>
+<li> <a href="#vim-commands">Useful Vim Commands</a>
 <li> <a href="#testing">Testing</a>
 <li> <a href="#rewrite-plain-html">Rewrite in Plain HTML</a>
 <li> <a href="#ssg">SSG</a>
@@ -31,6 +34,51 @@
 <li> <a href="#journaling">Reminder for Journaling</a>
 <li> <a href="#blog-attempt">Another Attempt to Create a Blog</a>
 </ol>
+
+<hr><!-- ========================================================= -->
+
+
+<h1 id="vim-commands">Useful Vim Commands</h1>
+
+<p>Posted: Mon, 06-04-2026.
+
+<p>I use these frequently. I excluded trivial commands like <code>j</code>, <code>d</code>, etc.
+
+<dl>
+<dt> <code>:tabe</code> mapped to <code>&lt;Space>n</code>
+<dd> Open new tab after the current one.
+
+<dt> <code>gt</code>
+<dd> Go to the next tab.
+
+<dt> <code>gT</code>
+<dd> Go to the previous tab.
+
+<dt> <code>:Lex</code> mapped to <code>&lt;Space>t</code>
+<dd> Toggle directory browser.
+
+<dt> <code>*</code>
+<dd> Search word nearest to the cursor.
+
+<dt> <code>''</code>
+<dd> Jump to the position before the latest jump.
+
+<dt> <code>o</code> in visual mode
+<dd> Move cursor to the other end.
+
+<dt> <code>ggVG=</code>
+<dd> Reindent the whole file. I know the common way is <code>gg=G</code>.
+     I prefer my way because the visual selection gives clear feedback.
+
+<dt> <code>zt</code>
+<dd> Place current line at the top of window.
+
+<dt> <code>zz</code>
+<dd> Place current line at the center of window.
+
+<dt> <code>di"</code>
+<dd> Delete everything <em>inside</em> the nearest double quotes.
+</dl>
 
 <hr><!-- ========================================================= -->
 
